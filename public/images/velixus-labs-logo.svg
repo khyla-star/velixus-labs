@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="vl-accent" x1="8" y1="6" x2="40" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D4FF6A" />
+      <stop offset="0.55" stop-color="#B8FF2C" />
+      <stop offset="1" stop-color="#6FD400" />
+    </linearGradient>
+    <linearGradient id="vl-sheen" x1="24" y1="8" x2="24" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+    <filter id="vl-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <path
+    d="M24 3.5 42.5 14v20L24 44.5 5.5 34V14L24 3.5Z"
+    fill="#0B0D10"
+    stroke="url(#vl-accent)"
+    stroke-width="1.35"
+  />
+  <path
+    d="M24 3.5 42.5 14v20L24 44.5 5.5 34V14L24 3.5Z"
+    fill="url(#vl-sheen)"
+  />
+
+  <path
+    d="M13.5 13.5 24 35.5 34.5 13.5"
+    stroke="url(#vl-accent)"
+    stroke-width="3.25"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#vl-glow)"
+  />
+  <path
+    d="M18 13.5h12"
+    stroke="#FFFFFF"
+    stroke-width="1.35"
+    stroke-linecap="round"
+    opacity="0.55"
+  />
+
+  <circle cx="24" cy="35.5" r="2.35" fill="#B8FF2C" />
+  <circle cx="13.5" cy="13.5" r="1.65" fill="#FFFFFF" />
+  <circle cx="34.5" cy="13.5" r="1.65" fill="#FFFFFF" />
+  <circle cx="24" cy="8.5" r="1.15" fill="#B8FF2C" opacity="0.85" />
+
+  <path
+    d="M24 8.5v3.2M19.2 11.2l2.8 1.6M28.8 11.2l-2.8 1.6"
+    stroke="#B8FF2C"
+    stroke-width="0.9"
+    stroke-linecap="round"
+    opacity="0.7"
+  />
+</svg>

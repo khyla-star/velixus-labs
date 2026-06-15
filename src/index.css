@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #050505;
+  --surface: #111111;
+  --text: #ffffff;
+  --muted: #a1a1aa;
+  --accent: #b8ff2c;
+  --border: #1f1f1f;
+  --border-subtle: #181818;
+
+  --font-sans: 'Barlow', sans-serif;
+}
+
+@layer base {
+  html {
+    font-size: 20px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    overflow-x: clip;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(184, 255, 44, 0.45) #1a1a1e;
+  }
+
+  html::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: #1a1a1e;
+    border-radius: 999px;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: rgba(184, 255, 44, 0.4);
+    border: 2px solid #1a1a1e;
+    border-radius: 999px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: rgba(184, 255, 44, 0.65);
+  }
+
+  html::-webkit-scrollbar-corner {
+    background: #1a1a1e;
+  }
+
+  body {
+    @apply bg-bg font-sans text-foreground antialiased;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1rem;
+    overflow: visible;
+    min-height: 100%;
+  }
+
+  ::selection {
+    background: rgba(184, 255, 44, 0.25);
+    color: var(--text);
+  }
+}
+
+@layer components {
+  .velix-container {
+    @apply mx-auto w-full max-w-6xl px-6 md:px-8;
+  }
+
+  .velix-grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .velix-card {
+    @apply rounded-lg border border-border bg-surface p-6 transition-all duration-300;
+  }
+
+  .velix-card:hover {
+    border-color: rgba(184, 255, 44, 0.3);
+    box-shadow: 0 0 12px rgba(184, 255, 44, 0.12);
+  }
+
+  .velix-accent-glow:hover {
+    box-shadow: 0 0 20px rgba(184, 255, 44, 0.2);
+  }
+
+  .velix-section-title {
+    font-size: clamp(2rem, 5vw, 80px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .velix-section-title-sm {
+    font-size: clamp(1.5rem, 3.75vw, 64px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .velix-section-title-lg {
+    font-size: clamp(2.5rem, 6.5vw, 96px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+
+  .velix-section-title-xl {
+    font-size: clamp(3rem, 8vw, 120px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  .velix-card-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .velix-card-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .velix-page-hero {
+    @apply relative flex min-h-[26rem] flex-col justify-center overflow-x-clip py-16 sm:py-20 md:min-h-[30rem] md:py-28;
+  }
+
+  .velix-hero-eyebrow {
+    @apply mb-4 font-mono text-xs uppercase tracking-[0.14em] text-muted;
+  }
+
+  .velix-hero-title {
+    @apply max-w-3xl text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-[2.75rem];
+  }
+
+  .velix-hero-lead {
+    @apply mt-4 max-w-3xl text-base leading-relaxed text-foreground sm:mt-5 sm:text-lg;
+  }
+
+  .velix-hero-description {
+    @apply mt-4 max-w-3xl text-base leading-relaxed text-muted md:text-lg;
+  }
+
+  .velix-hero-actions {
+    @apply mt-8 flex flex-wrap gap-4;
+  }
+
+  /* Homepage hero: logo only when title and image sit side-by-side (lg+). */
+  .hero-system-grid {
+    @apply grid w-full min-w-0 grid-cols-1 items-start gap-8 sm:gap-10 lg:items-center lg:gap-0;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-system-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  .hero-system-copy {
+    @apply w-full min-w-0 text-left;
+  }
+
+  .hero-system-logo-slot {
+    @apply relative hidden w-full min-w-0 items-center justify-center lg:flex;
+  }
+
+  /* Fluid logo: slightly inset within its half of the row */
+  .hero-system-logo {
+    @apply mx-auto h-auto max-w-full object-contain drop-shadow-[0_0_40px_rgba(184,255,44,0.16)];
+    width: min(72%, 26rem);
+  }
+
+  @media (min-width: 1280px) {
+    .hero-system-logo {
+      width: min(72%, 30rem);
+    }
+  }
+
+  /* Homepage: only the document scrolls — hide nested scrollbars */
+  .home-page,
+  .home-page * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .home-page *::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-page section,
+  .home-page .hero-system-grid,
+  .home-page .hero-system-logo-slot,
+  .home-page .velix-container {
+    overflow-y: visible !important;
+    overflow-x: visible;
+  }
+
+  .home-page .hero-bg-layer,
+  .home-page .partners-marquee-clip,
+  .home-page .testimonials-track {
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
